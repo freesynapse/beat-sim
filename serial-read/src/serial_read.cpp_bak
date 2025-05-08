@@ -1,0 +1,94 @@
+
+#include "serial_read.h"
+
+#include <stdio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+#include <synapse/Event>
+
+using namespace Syn;
+
+// static members
+array_t SerialReader::s_data;
+int SerialReader::s_fd = 0;
+std::string SerialReader::s_devPath = "";
+bool SerialReader::s_updated = false;
+
+//----------------------------------------------------------------------------------------
+int SerialReader::init(int _argc, char *_argv[])
+{
+    if (_argc < 2)
+    {
+        usage(_argv[0]);
+        return RETURN_FAILURE;
+    }
+
+    // oper port
+    s_fd = 0;
+    s_fd = open(_argv[1], O_RDWR);
+    if (s_fd == -1)
+    {
+        SYN_CORE_ERROR(strerror(errno));
+        return RETURN_FAILURE;
+    }
+    s_devPath = std::string(_argv[1]);
+
+    // serial port parameters
+    struct termios newtio;
+    memset(&newtio, 0, sizeof(newtio));
+    struct termios oldtio;
+    tcgetattr(s_fd, &oldtio);
+
+    newtio = oldtio;
+    newtio.c_cflag = BAUDRATE | CS8 | CLOCAL | CREAD;
+    newtio.c_iflag = 0;
+    newtio.c_oflag = 0;
+    newtio.c_lflag = 0;
+    newtio.c_cc[VMIN] = 1;
+    newtio.c_cc[VTIME] = 1;
+    tcflush(s_fd, TCIFLUSH);
+
+    cfsetispeed(&newtio, BAUDRATE);
+    tcsetattr(s_fd, TCSANOW, &newtio);
+
+    SYN_CORE_TRACE("opened serial connection on '", s_devPath, "'.");
+    return RETURN_SUCCESS;
+
+}
+
+//----------------------------------------------------------------------------------------
+void SerialReader::shutdown()
+{
+    close(s_fd);
+
+}
+
+//----------------------------------------------------------------------------------------
+void SerialReader::read()
+{
+    static uint32_t it = 0;
+
+    s_updated = false;
+    float f;
+    if (::read(s_fd, &f, sizeof(float)) == 4)
+    {
+        s_data.append(f);
+        s_data.limits();
+
+        s_updated = true;
+        
+    }
+
+    it++;
+    
+}
+
+//----------------------------------------------------------------------------------------
+void SerialReader::usage(const char *_cmd)
+{
+    Log::exit_message("usage: %s <pts>\n       (e.g. '%s /dev/pts/3')\n", _cmd, _cmd);
+
+}
+

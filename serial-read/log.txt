@@ -1,0 +1,46 @@
+>>>> 2025-05-05 : SYNAPSE-CORE <<<<
+[11:26:24] main(): logging enabled.
+[11:26:24] main(): Random generator initialized.
+[11:26:24] main(): EventHandler listening.
+[11:26:24] Syn::ThreadPool::init(): initializing worker threads (15).
+[11:26:24] Syn::Window::init(): GLFW window (2560x1600) created.
+[11:26:24] Syn::Window::init(): GLAD initialized.
+[11:26:24] Syn::Window::init(): OpenGL vendor: AMD
+[11:26:24] Syn::Window::init(): OpenGL renderer: AMD Radeon 780M (radeonsi, gfx1103_r1, LLVM 19.1.1, DRM 3.57, 6.8.0-58-generic)
+[11:26:24] Syn::Window::init(): OpenGL version: 4.6 (Compatibility Profile) Mesa 24.2.8-1ubuntu1~24.04.1
+[11:26:24] Syn::Window::Window(): Window initialization complete.
+[11:26:24] Syn::ShaderLibrary::add(): shader 'static_debug_normal_shader' added to library.
+[11:26:24] Syn::ShaderLibrary::add(): shader 'static_debug_tangent_shader' added to library.
+[11:26:24] Syn::ShaderLibrary::add(): shader 'static_debug_bitangent_shader' added to library.
+[11:26:24] >>> WARNING: static void Syn::Renderer::initImGui(): no ImGui configuration file found.
+[11:26:24] Syn::InputManager::init(): listening.
+[11:26:24] Syn::FramebufferBase::resize(): Framebuffer 'render_buffer' (renderTargets=1 [1440 x 960 x 4]) created.
+[11:26:24] Syn::ShaderLibrary::add(): shader 'static_font_shader' added to library.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] SerialReader<float>::SerialReader(): opened serial connection on '/dev/pts/2'.
+[11:26:24] Syn::ShaderLibrary::add(): shader 'mplc_shader_2D' added to library.
+[11:26:24] Syn::ShaderLibrary::add(): shader 'mplc_shader_font' added to library.
+[11:26:24] Syn::FramebufferBase::resize(): Framebuffer 'mplc_Figure_wXCSaagi' (renderTargets=1 [2000 x 300 x 4]) created.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] Syn::FramebufferBase::resize(): Framebuffer 'mplc_Figure_RdqUVMte' (renderTargets=1 [2000 x 300 x 4]) created.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] Syn::FramebufferBase::resize(): Framebuffer 'mplc_Figure_GgbGDGN5' (renderTargets=1 [2000 x 300 x 4]) created.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] >>> ERROR: int Syn::Font::initAtlas(const char *, const int &, const glm::vec2 &): could not load atlas.
+[11:26:24] main(): Dear ImGui : enabled for instance.
+[11:26:24] layer::onImGuiRender(): viewport [ 32, 8 ]
+[11:26:24] Syn::FramebufferBase::resize(): Framebuffer 'render_buffer' (renderTargets=1 [32 x 8 x 4]) created.
+[11:26:26] Syn::Application::onEvent(): WINDOW_CLOSE event recieved. Exit.
+[11:26:26] Syn::Application::onEvent(): APPLICATION_EXIT event recieved. Exit.
+[11:26:26] Syn::Window::~Window(): terminating GLFW.
+[11:26:26] Syn::EventHandler::shutdown(): clearing event queue.
+[11:26:26] Syn::FileIOHandler::shutdown(): deleting file './mplc_shader_2D.glsl'.
+[11:26:26] Syn::FileIOHandler::shutdown(): deleting file './mplc_shader_font.glsl'.
+[11:26:26] Syn::ThreadPool::shutdown(): worker threads destroyed.
+[11:26:26] main(): closing log.
+>>>> Application terminated : 10 error(s); 1 warning(s). <<<<

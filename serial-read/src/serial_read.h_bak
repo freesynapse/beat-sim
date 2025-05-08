@@ -1,0 +1,33 @@
+#ifndef __SERIAL_READ_H
+#define __SERIAL_READ_H
+
+#include <string>
+#include "types.h"
+
+//
+#define BAUDRATE B9600
+
+//
+class SerialReader
+{
+public:
+    static int init(int _argc, char *_argv[]);
+    static void shutdown();
+
+    static void read();
+
+    static void usage(const char *_cmd);
+
+    static array_t &data() { return s_data; }
+    static bool updated() { return s_updated; }
+
+private:
+    static array_t s_data;
+    static int s_fd;
+    static std::string s_devPath;
+    static bool s_updated;
+
+};
+
+
+#endif // __SERIAL_READ_H
