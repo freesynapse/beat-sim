@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
         // size_t current_dataset = rand() % 3;
         size_t n = 0;
         size_t N = data[current_dataset].size();
-        printf("dataset %zu selected (N=%zu)\n", current_dataset, N);
+        // printf("dataset %zu selected (N=%zu)\n", current_dataset, N);
 
         while (n < N)
         {
